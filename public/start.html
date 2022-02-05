@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EAD</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.10.2/css/all.css"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="https://www.autonoma.pt">
+              <img
+                src="images/Logo.png"
+                height="60"
+                alt="Autonoma"
+                loading="lazy"
+              />
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-primary mt-5"
+                  id="btnModalLogin"
+                >
+                  Login
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-primary"
+                  id="btnModalRegistar"
+                >
+                  Registar
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  type="button"
+                  class="btn btn-sm btn-warning d-block mt-5"
+                  id="btnLogoff"
+                >
+                  Fazer logoff
+                </button>
+              </li>
+            </ul>
+            <!-- Left links -->
+          </div>
+          <!-- Collapsible wrapper -->
+
+          <!-- Right elements -->
+          <div class="d-flex align-items-center">
+            <!-- Icon -->
+            <a class="text-reset me-3" href="#">
+              <i class="fas fa-shopping-cart"></i>
+            </a>
+
+            <!-- Notifications -->
+            <a
+              class="text-reset me-3 dropdown-toggle hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-bell"></i>
+              <span class="badge rounded-pill badge-notification bg-danger"
+                >1</span
+              >
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <li>
+                <a class="dropdown-item" href="#">Some news</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Another news</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </li>
+            </ul>
+
+            <!-- Avatar -->
+            <a
+              class="dropdown-toggle d-flex align-items-center hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+                class="rounded-circle"
+                height="25"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+              />
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuLink"
+            >
+              <li>
+                <a class="dropdown-item" href="#">My profile</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Settings</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Logout</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Right elements -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+      <!-- Navbar -->
+    </header>
+    <section aria-label="Newest Photos">
+      <div class="carousel" data-carousel>
+        <button class="carousel-button prev" data-carousel-button="prev">
+          &#8656;
+        </button>
+        <button class="carousel-button next" data-carousel-button="next">
+          &#8658;
+        </button>
+        <ul data-slides>
+          <li class="slide" data-active>
+            <img
+              src="images/UAL.jpg"
+              alt="UAL"
+            />
+          </li>
+          <li class="slide">
+            <img
+              src="images/Pateo.png"
+              alt="Páteo"
+            />
+          </li>
+          <li class="slide">
+            <img
+              src="images/DECC.png"
+              alt="DECC"
+            />
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="container">
+      <hr>
+      <button
+        type="button"
+        id="searchbtn"
+        class="btn btn-primary btn-lg btn-block"
+        disabled
+        onclick="getDisciplinas('')"
+      >
+        Clique aqui para obter a lista de disciplinas
+      </button>
+      <div>
+        <label for="searchkey">Ano ou texto a procurar:</label>
+        <input
+          id="searchkey"
+          type="text"
+          placeholder="Critério de pesquisa"
+          disabled
+        />
+      </div>
+    </div>
+    <div id="listaDisciplinas">
+      <!-- Conteúdo a ser injetado via JavaScript -->
+    </div>
+    <hr>
+    
+    <!-- Modal para registar novo utilizador -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalRegistar"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Registo de novo utilizador
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameRegistar"
+                name="usernameRegistar"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLoginRegistar"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaRegistar"
+                name="senhaRegistar"
+                placeholder="Senha"
+              />
+              <p id="statusRegistar"></p>
+            </div>
+            <div class="modal-footer d-block">
+              <button
+                id="btnCancelaRegistar"
+                class="btn btn-warning float-end"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                class="btn btn-success float-end"
+                id="btnSubmitRegistar"
+                onclick="validaRegisto()"
+              >
+                Submeter
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para fazer login -->
+    <!-- se retirar o data-bs-backdrop, o modal desaparece ao clicar no fundo da página -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-bs-backdrop="static"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Insira suas credenciais
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              id="btnLoginClose"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">E-Mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="usernameLogin"
+                name="usernameLogin"
+                placeholder="E-Mail"
+              />
+              <p id="emailErroLogin"></p>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senhaLogin"
+                name="senhaLogin"
+                placeholder="Senha"
+              />
+              <p id="passErroLogin"></p>
+              <p id="statusLogin"></p>
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="rememberMe" />
+              <label class="form-check-label" for="rememberMe"
+                >Lembrar-me</label
+              >
+            </div>
+            <div class="modal-footer d-block">
+              <p id="pRegistar" class="float-start">
+                Sem conta ainda? <a href="#">Registe-se</a>
+              </p>
+              <button class="btn btn-warning float-end" data-bs-dismiss="modal">
+                Cancelar
+              </button>
+              <button
+                class="btn btn-success float-end"
+                id="btnSubmitLogin"
+                onclick="validaLogin()"
+              >
+                Submeter
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/users.js"></script>
+  </body>
+</html>

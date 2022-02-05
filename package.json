@@ -1,0 +1,29 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "Projeto para a cadeira de DW",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "João Magalhães, João Ascenso, Patrícia Trindade e Ricardo Rosa",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "find-config": "^1.0.0",
+    "fs": "^0.0.1-security",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mdb-ui-kit": "^3.9.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nedb": "^1.8.0",
+    "nodemailer": "^6.7.1",
+    "nodemon": "^2.0.15"
+  }
+}
